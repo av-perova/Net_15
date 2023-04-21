@@ -56,7 +56,7 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>l
+        </plugins>
     </build>
 
 </project>
