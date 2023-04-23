@@ -3,8 +3,10 @@ public class Radio {
     private int numberStation;
 
     public int getSoundVolume() {
+
         return soundVolume;
     }
+
     public void setSoundVolume(int newSoundVolume) {
         if (newSoundVolume < 0) {
             return;
@@ -25,7 +27,8 @@ public class Radio {
         setSoundVolume(target);
     }
 
-    public int getNumberStation(){
+    public int getNumberStation() {
+
         return numberStation;
     }
 
@@ -38,6 +41,7 @@ public class Radio {
         }
         numberStation = newNumberStation;
     }
+
     public void next() {
         int target = numberStation + 1;
         if (target > 9) {
