@@ -1,10 +1,41 @@
 public class Radio {
     private int soundVolume;
+
     private int numberStation;
+    private int quantityStation = 10;
+    private int minStation;
+    private int maxStation = 9;
+
+
+    public Radio(int quantityStation) {
+        this.quantityStation = quantityStation;
+        maxStation = quantityStation - 1;
+    }
+
+    public Radio() {
+
+    }
+
+    public int getQuantityStation() {
+        return quantityStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
 
     public int getSoundVolume() {
         return soundVolume;
     }
+
+    public int getNumberStation() {
+        return numberStation;
+    }
+
     public void setSoundVolume(int newSoundVolume) {
         if (newSoundVolume < 0) {
             return;
@@ -25,31 +56,28 @@ public class Radio {
         setSoundVolume(target);
     }
 
-    public int getNumberStation(){
-        return numberStation;
-    }
-
     public void setNumberStation(int newNumberStation) {
-        if (newNumberStation < 0) {
+        if (newNumberStation < minStation) {
             return;
         }
-        if (newNumberStation > 9) {
+        if (newNumberStation > maxStation) {
             return;
         }
         numberStation = newNumberStation;
     }
+
     public void next() {
         int target = numberStation + 1;
-        if (target > 9) {
-            setNumberStation(0);
+        if (target > maxStation) {
+            setNumberStation(minStation);
         }
         setNumberStation(target);
     }
 
     public void prev() {
         int target = numberStation - 1;
-        if (target < 0) {
-            setNumberStation(9);
+        if (target < minStation) {
+            setNumberStation(maxStation);
         }
         setNumberStation(target);
     }
